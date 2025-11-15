@@ -26,7 +26,7 @@ function App() {
 function OrderButton() {
   const currentHour = new Date().getHours();
   const openHour = 10;
-  const closeHour = 25;
+  const closeHour = 22;
   const isOpen = currentHour >= openHour && currentHour < closeHour;
   return (
     <div style={{marginTop: "10px"}}>
@@ -38,7 +38,7 @@ function OrderButton() {
 function ShopOpenHours() {
   const currentHour = new Date().getHours();
   const openHour = 10;
-  const closeHour = 25;
+  const closeHour = 22;
   return currentHour >= openHour && currentHour < closeHour;
 }
 
@@ -60,22 +60,22 @@ function Header() {
   );
 }
 
-// function Menu({ pizzas }) {
-//   return(
-//     <div>
-//       {pizzas.map((pizza, index) => (
-//         <Pizza
-//             key={index}
-//             name={pizza.name}
-//             ingredients={pizza.ingredients}
-//             price={pizza.price}
-//             photoName={pizza.photoName}
-//             soldOut={pizza.soldOut}
+// function Menu() {
+//   return (
+//     <ul>
+//       {pizzaData.map((pizza) => (
+//         <PizzaItem
+//           name={pizza.name}
+//           ingredients={pizza.ingredients}
+//           price={pizza.price}
+//           photoName={pizza.photoName}
+//           soldOut={pizza.soldOut}
 //         />
 //       ))}
-//     </div>
-//   )
+//     </ul>
+//   );
 // }
+
 
 function Menu() {
     return (
@@ -83,40 +83,40 @@ function Menu() {
             <h2>Our Menu</h2>
             <div className="pizzas">
               <Pizza 
-                image_source="pizzas/margherita.jpg"
+                photoName="pizzas/margherita.jpg"
                 image_alt="Margherita Pizza"
-                type="Margherita Pizza"
-                desc="Tomato, Mozzarella Cheese"
+                name="Margherita Pizza"
+                ingredients="Tomato, Mozzarella Cheese"
                 price="10"> </Pizza>
                 <Pizza 
-                image_source="pizzas/spinaci.jpg"
+                photoName="pizzas/spinaci.jpg"
                 image_alt="Spinaci Pizza"
-                type="Spinaci Pizza"
-                desc="Tomato, Mozzarella Cheese, Spinach"
+                name="Spinaci Pizza"
+                ingredients="Tomato, Mozzarella Cheese, Spinach"
                 price="12"> </Pizza>
                 <Pizza
-                  image_source="pizzas/funghi.jpg"
+                  photoName="pizzas/funghi.jpg"
                   image_alt="Funghi Pizza"
-                  type="Funghi Pizza"
-                  desc="Tomato, Mozzarella Cheese, Mushrooms, Onion"
+                  name="Funghi Pizza"
+                  ingredients="Tomato, Mozzarella Cheese, Mushrooms, Onion"
                   price="12"></Pizza>
                 <Pizza
-                  image_source="pizzas/salamino.jpg"
+                  photoName="pizzas/salamino.jpg"
                   image_alt="Salamino Pizza"
-                  type="Salamino Pizza"
-                  desc="Tomato, Mozzarella Cheese, Pepperoni"
+                  name="Salamino Pizza"
+                  ingredients="Tomato, Mozzarella Cheese, Pepperoni"
                   price="15"></Pizza>
                 <Pizza
-                  image_source="pizzas/prosciutto.jpg"
+                  photoName="pizzas/prosciutto.jpg"
                   image_alt="Prosciutto Pizza"
-                  type="Prosciutto Pizza"
-                  desc="Tomato, Mozzarella Cheese, Ham, Aragula, Burrete Cheese"
+                  name="Prosciutto Pizza"
+                  ingredients="Tomato, Mozzarella Cheese, Ham, Aragula, Burrete Cheese"
                   price="18"></Pizza>
                 <Pizza
-                  image_source="pizzas/focaccia.jpg"
+                  photoName="pizzas/focaccia.jpg"
                   image_alt="Focaccia"
-                  type="Focaccia"
-                  desc="Bread with Italian Olive Oil and Rosemary"
+                  name="Focaccia"
+                  ingredients="Bread with Italian Olive Oil and Rosemary"
                   price="6"></Pizza>
 
         </div>
@@ -125,12 +125,12 @@ function Menu() {
     )
 }
 
-function Pizza({ image_source, image_alt, type, desc, price }) {
+function Pizza({ photoName, image_alt, name, ingredients, price }) {
     return (
       <div className="pizza">
-        <img src={image_source} alt={image_alt} width="150" style={{ borderRadius:"10px"}}></img>
-        <h3>{type}</h3>
-        <p>{desc}</p>
+        <img src={photoName} alt={image_alt} width="150" style={{ borderRadius:"10px"}}></img>
+        <h3>{name}</h3>
+        <p>{ingredients}</p>
         <p>${price}</p>
       </div>
     );
